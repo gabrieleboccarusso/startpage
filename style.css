@@ -1,0 +1,36 @@
+/* first comment to try out git*/
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	display: grid;
+	grid-template-columns: 1fr 4fr 1fr;
+	grid-gap: 5%;
+}
+
+main {
+	display: grid;
+	grid-template-rows: repeat(3, 1fr);
+}
+
+.left {
+	background-color: pink;
+}
+
+.right {
+	background-color: grey;
+}
+
+.connections {
+	background-color: orange;
+}
+
+.resources {
+	background-color: lightblue;
+}
+
+.calendar {
+	background-color: purple;
+}
