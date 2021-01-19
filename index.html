@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<aside class="left">
-		list
+		<header>
+			<h2>Film to see</h2>
+			<input type="text" id="film-name" placeholder="enter film to see">
+			<button id="added-film" class="film">Add</button>
+		</header>
+
+		<ul id="films-to-see">
+			<li>C'era una volta in America</li>
+		</ul>
+		<p>
+			things to do: save the films (after the page is refreshed they are do NOT go away)
+			<br>
+			add button to delete a saw film
+			<br>
+			a film saw go into the database of film saw (something like react robofriends app)
+		</p>
 	</aside>
 
 	<main>
@@ -47,5 +63,7 @@
 	<aside class="right">
 		online instruments
 	</aside>
+
+	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
