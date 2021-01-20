@@ -6,7 +6,8 @@ var ul = document.querySelector("ul");
 var film = document.getElementById("film-name");
 // we set the variable 'enter' to 13 to make to code more readable
 var enter = 13;
-// creating the button to strike through the watched films
+// selecting the space with the id of watched-film
+var watched = document.getElementById("watched-film");
 
 
 function addFilm () 

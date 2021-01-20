@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>JavaScript LocalStorage</title>
+    </head>
+    <body>
+    	<p>
+    		<input type="text" id="link" placeholder="enter link">
+			<button id="link-btn" class="link-btn">Add link</button>
+    	</p>
+    	<p>
+    		<output id="link-to-visit">
+    		</output>
+    	</p>
+        <script>
+        	var button = document.getElementById("link-btn");
+        	// taking the link from the user
+        	var link_text = document.getElementById("link");
+        	// setting the array of links
+        	var links = [];
+        	// taking the field to put the buttons in
+        	var output2 = document.getElementById("link-to-visit");
+
+
+        	// we take the links from the array and put everyone of them into an array
+
+
+
+
+
+        	// set the event that when the button is clicked add a link to an array of links
+        	button.addEventListener("click", function () {
+        		// pushing the value of the string into the array
+        		links.push(link_text.value);
+        		// making sure that we took the link
+        		console.log(links);
+        		// setting a variable to create the button
+        		var button_link = document.createElement("button");
+        		// adding text inside the button
+        		button_link.appendChild(document.createTextNode("i am a link button"));
+        		button_link.setAttribute("href", links[0]);
+        		// adding the button to the desired section
+        		output2.appendChild(button_link);
+
+        	});
+
+
+            //localStorage.setItem('fullName', 'Jenny Smith');
+        </script>
+    </body>
+</html>
+  
