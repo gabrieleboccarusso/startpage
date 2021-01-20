@@ -34,3 +34,7 @@ main {
 .calendar {
 	background-color: purple;
 }
+
+.watched {
+	text-decoration: line-through;;
+}
