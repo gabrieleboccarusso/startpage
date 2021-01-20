@@ -11,38 +11,44 @@ var enter = 13;
 
 function addFilm () 
 {
-	// the function create a new li element for the list
+	// we create a new li element for the list
 	var li = document.createElement("li");
+	// we create a new button with the li element
+	var btn = document.createElement("button");
+	//adding text to the button
+	btn.appendChild(document.createTextNode("delete it")); 
+	// awhen clicked on the button the li element and the buttons itself get deleted
+	btn.onclick = deleteFilm = () => {
+		ul.removeChild(li);
+		btn.remove();
+	};
 	// we append the value of the of the input with the film-name id the the li
-	li.appendChild(document.createTextNode(film.value));
+	li.appendChild(document.createTextNode(film.value + " "));
 	// we add the possibility to toggle between the class watched and no class
 	li.onclick = function () {
-		this.classList.toggle("watched");
-	};
+		this.classList.toggle("watched"); 
+	}
+	// we append the delete button to the li element
+	li.appendChild(btn);
 	// we append the li child with the name film inside the ul element
 	ul.appendChild(li);
-	// appending the button the sign the film as watched
 	// we reset the original value to zero
 	film.value = "";
 }
 
-function lengthInput() 
-{	// we return the value tìof the length of the name film
+// make sure that the string is not void
+lengthInput = () => {
 	return film.value.length;
 }
 
-function addFilmAfterClick () 
-{
-	if (lengthInput() > 0)
-	{
+addFilmAfterClick = () => {
+	if (lengthInput() > 0) {
 		addFilm();
 	}
-}
+};
 
-function addFilmAfterKeypress (event) 
-{
-	if (lengthInput() > 0 && event.keyCode === enter)
-	{
+addFilmAfterKeypress = (event) =>  {
+	if (lengthInput() > 0 && event.keyCode === enter) {
 		addFilm();
 	}
 }
