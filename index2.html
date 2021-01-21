@@ -18,12 +18,7 @@
         	// taking the link from the user
         	var link = document.getElementById("link_text");
         	// setting the array of links 
-        	var links = [];
-            //setting the object with the effective link and its description
-            var link_info = {
-                link: "",
-                descr: ""
-            };
+        	const links = [];
         	// taking the field to put the buttons in
         	var output = document.getElementById("link-to-visit");
             // taking the link after the user pressed the button
@@ -33,8 +28,16 @@
 
         	// the function add just the link to the array
             addLinkToArray = () => { 
+                //setting the object with the effective link and its description
+                const link_info = { // creating the array into the function otherwise
+                    link: "",       // it in the array will arrive always the same values
+                    descr: ""
+                };
+                // putting the link into the section of the object
                 link_info.link = link_text.value;
+                // putting the description of the link into the section of the object
                 link_info.descr = link_description.value;
+                //pushing the object into the array
                 links.push(link_info);
             }
 
@@ -49,7 +52,6 @@
                     hyperlink.setAttribute("href", links[i].link);
                     // appendig the link to the output section of the page
                     output.appendChild(hyperlink);
-                    // console.log(links[i].descr);
                 }
             }
 
