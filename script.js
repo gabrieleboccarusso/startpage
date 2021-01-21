@@ -1,3 +1,4 @@
+// START TO DO LIST
 // we select the button with the id of added-film
 var button = document.getElementById("added-film");
 // understand query selector
@@ -57,5 +58,6 @@ addFilmAfterKeypress = (event) =>  {
 button.addEventListener("click", addFilmAfterClick);
 
 film.addEventListener("keypress", addFilmAfterKeypress);
+// END TO DO LIST 
 
 
