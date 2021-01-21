@@ -6,6 +6,7 @@
     <body>
     	<p>
     		<input type="text" id="link_text" placeholder="enter link">
+            <input type="text" id="link_description" placeholder="enter description">
 			<button id="link-btn" class="link-btn">Add link</button>
             <button id="links-output" class="link-btn">see all links</button>
     	</p>
@@ -16,8 +17,13 @@
         <script>
         	// taking the link from the user
         	var link = document.getElementById("link_text");
-        	// setting the array of links
+        	// setting the array of links 
         	var links = [];
+            //setting the object with the effective link and its description
+            var link_info = {
+                link: "",
+                descr: ""
+            };
         	// taking the field to put the buttons in
         	var output = document.getElementById("link-to-visit");
             // taking the link after the user pressed the button
@@ -26,7 +32,11 @@
             var see_links = document.getElementById("links-output");
 
         	// the function add just the link to the array
-            addLinkToArray = () => { links.push(link_text.value); }
+            addLinkToArray = () => { 
+                link_info.link = link_text.value;
+                link_info.descr = link_description.value;
+                links.push(link_info);
+            }
 
             // outputting all the links into the established output tag
             seeAllLinks = () => {
@@ -34,11 +44,12 @@
                     // setting a variable to create the link text
                     var hyperlink = document.createElement("a");
                     // adding elternative text for the link that describe the link
-                    hyperlink.appendChild(document.createTextNode("i am a link"));
+                    hyperlink.appendChild(document.createTextNode(links[i].descr));
                     // setting the href attribute
-                    hyperlink.setAttribute("href", links[i]);
+                    hyperlink.setAttribute("href", links[i].link);
                     // appendig the link to the output section of the page
                     output.appendChild(hyperlink);
+                    // console.log(links[i].descr);
                 }
             }
 
