@@ -4,29 +4,26 @@
         <title>LocalStorage</title>
     </head>
     <body>
-        <p>
-            <input type="text" id="link_text" placeholder="enter link">
+    	<p>
+    		<input type="text" id="link_text" placeholder="enter link">
             <input type="text" id="link_description" placeholder="enter description">
-            <button id="link-btn" class="link-btn">Add link</button>
-            <button id="links-output" class="link-btn">see all links</button>
-        </p>
-        <p>
-            <output id="link-to-visit">
-            </output>
-        </p>
+			<button id="link-btn" class="link-btn">Add link</button>
+    	</p>
+    	<p>
+    		<output id="link-to-visit">
+    		</output>
+    	</p>
         <script>
-            // taking the link from the user
-            var link = document.getElementById("link_text");
-            // initializing the 
+        	// taking the link from the user
+        	var link = document.getElementById("link_text");
+            // initializing the array with the already locally stored one 
             const links = JSON.parse(localStorage["links"]);
-            // taking the field to put the buttons in
-            var output = document.getElementById("link-to-visit");
+        	// taking the field to put the buttons in
+        	var output = document.getElementById("link-to-visit");
             // taking the link after the user pressed the button
             var take_link_button = document.getElementById("link-btn");
-            // when the button is activated will call the function that will display all the links at the same time
-            var see_links = document.getElementById("links-output");
 
-            // the function add just the link to the array
+        	// the function add just the link to the array
             addLinkToArray = () => { 
                 //setting the object with the effective link and its description
                 const link_info = { // creating the array into the function otherwise
@@ -61,7 +58,7 @@
             }
 
             take_link_button.addEventListener("click", addLinkToArray);
-            see_links.addEventListener("click", seeAllLinks);
+            window.onload = seeAllLinks;
         </script>
     </body>
 </html>
