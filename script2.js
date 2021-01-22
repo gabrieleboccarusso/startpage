@@ -25,9 +25,10 @@ addLinkToArray = () => {
         descr: ""
     };
     // putting the link into the section of the object
-    link_info.link = link_text.value;
-    // putting the description of the link into the section of the object
-    link_info.descr = link_description.value;
+    link_info.link = prompt('Enter the link');
+     // putting the description of the link into the section of the object
+    link_info.descr = prompt('Enter the link description');
+
     //pushing the object into the array
     links.push(link_info);
     // putting everything in the locat storage of the browser
