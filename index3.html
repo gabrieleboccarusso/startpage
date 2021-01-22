@@ -16,8 +16,12 @@
         <script>
         	// taking the link from the user
         	var link = document.getElementById("link_text");
-            // initializing the array with the already locally stored one 
-            const links = JSON.parse(localStorage["links"]);
+            // WRITE COMMENT FOR THIS SECTION
+            if (!localStorage['locally_stored_links']) {
+                localStorage.setItem('locally_stored_links', []);
+            } else {
+                const links = JSON.parse(localStorage['locally_stored_links']);
+            }
         	// taking the field to put the buttons in
         	var output = document.getElementById("link-to-visit");
             // taking the link after the user pressed the button
@@ -37,13 +41,13 @@
                 //pushing the object into the array
                 links.push(link_info);
                 // putting everything in the locat storage of the browser
-                localStorage["links"] = JSON.stringify(links);
+                localStorage['locally_stored_links'] = JSON.stringify(links);
             }
 
             // outputting all the links into the established output tag
             seeAllLinks = () => {
                 // taking the array of links from the browser local storage
-                const stored_links = JSON.parse(localStorage["links"]);
+                const stored_links = JSON.parse(localStorage['locally_stored_links']);
                 // creating all the link to see
                 for (var i = 0; i < stored_links.length; i++) {
                     // setting a variable to create the link text
