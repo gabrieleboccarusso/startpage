@@ -1,68 +1,19 @@
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>LocalStorage</title>
-    </head>
-    <body>
-        <p>
-            <input type="text" id="link_text" placeholder="enter link">
-            <input type="text" id="link_description" placeholder="enter description">
-            <button id="link-btn" class="link-btn">Add link</button>
-            <button id="links-output" class="link-btn">see all links</button>
-        </p>
-        <p>
-            <output id="link-to-visit">
-            </output>
-        </p>
-        <script>
-            // taking the link from the user
-            var link = document.getElementById("link_text");
-            // initializing the 
-            const links = JSON.parse(localStorage["links"]);
-            // taking the field to put the buttons in
-            var output = document.getElementById("link-to-visit");
-            // taking the link after the user pressed the button
-            var take_link_button = document.getElementById("link-btn");
-            // when the button is activated will call the function that will display all the links at the same time
-            var see_links = document.getElementById("links-output");
+<button onclick="myFunction()">Try it</button>
 
-            // the function add just the link to the array
-            addLinkToArray = () => { 
-                //setting the object with the effective link and its description
-                const link_info = { // creating the array into the function otherwise
-                    link: "",       // it in the array will arrive always the same values
-                    descr: ""
-                };
-                // putting the link into the section of the object
-                link_info.link = link_text.value;
-                // putting the description of the link into the section of the object
-                link_info.descr = link_description.value;
-                //pushing the object into the array
-                links.push(link_info);
-                // putting everything in the locat storage of the browser
-                localStorage["links"] = JSON.stringify(links);
-            }
+<p id="demo"></p>
 
-            // outputting all the links into the established output tag
-            seeAllLinks = () => {
-                // taking the array of links from the browser local storage
-                const stored_links = JSON.parse(localStorage["links"]);
-                // creating all the link to see
-                for (var i = 0; i < stored_links.length; i++) {
-                    // setting a variable to create the link text
-                    var hyperlink = document.createElement("a");
-                    // adding elternative text for the link that describe the link
-                    hyperlink.appendChild(document.createTextNode(stored_links[i].descr + "  "));
-                    // setting the href attribute
-                    hyperlink.setAttribute("href", stored_links[i].link);
-                    // appendig the link to the output section of the page
-                    output.appendChild(hyperlink);
-                }
-            }
-
-            take_link_button.addEventListener("click", addLinkToArray);
-            see_links.addEventListener("click", seeAllLinks);
-        </script>
-    </body>
+<script>
+function myFunction() {
+  var txt;
+  var person = prompt("Please enter your name:", "Harry Potter");
+  if (person == null || person == "") {
+    txt = "User cancelled the prompt.";
+  } else {
+    txt = "Hello " + person + "! How are you today?";
+  }
+  document.getElementById("demo").innerHTML = txt;
+}
+</body>
 </html>
   
