@@ -21,6 +21,8 @@ function addFilm ()
 		ul.removeChild(li);
 		btn.remove();
 	};
+	// adding text into the button 
+	btn.appendChild(document.createTextNode("x"));
 	// we append the value of the of the input with the film-name id the the li
 	li.appendChild(document.createTextNode(film.value + " "));
 	// we add the possibility to toggle between the class watched and no class
