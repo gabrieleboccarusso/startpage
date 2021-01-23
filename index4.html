@@ -4,30 +4,30 @@
         <title>LocalStorage</title>
     </head>
     <body>
-        <p>
-            <input type="text" id="link_text" placeholder="enter link">
+    	<p>
+    		<input type="text" id="link_text" placeholder="enter link">
             <input type="text" id="link_description" placeholder="enter description">
-            <button id="link-btn" class="link-btn">Add link</button>
-        </p>
-        <p>
-            <output id="link-to-visit">
-            </output>
-        </p>
+			<button id="link-btn" class="link-btn">Add link</button>
+    	</p>
+    	<p>
+    		<output id="link-to-visit">
+    		</output>
+    	</p>
         <script>
-            // taking the link from the user
-            var link = document.getElementById("link_text");
+        	// taking the link from the user
+        	var link = document.getElementById("link_text");
             const links = [];
             // if the array of stored links already doesn't exists already
             if (!links.push(JSON.parse(localStorage.getItem('links')))) {
                 // then initialize one
                 localStorage.setItem('links', JSON.stringify(links));
             }
-            // taking the field to put the buttons in
-            var output = document.getElementById("link-to-visit");
+        	// taking the field to put the buttons in
+        	var output = document.getElementById("link-to-visit");
             // taking the link after the user pressed the button
             var take_link_button = document.getElementById("link-btn");
 
-            // the function add just the link to the array
+        	// the function add just the link to the array
             addLinkToArray = () => { 
                 //setting the object with the effective link and its description
                 const link_info = { // creating the array into the function otherwise
