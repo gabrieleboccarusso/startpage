@@ -10,6 +10,7 @@
 
 // taking the link from the user
 var link = document.getElementById("link_text");
+console.log(JSON.parse("links"));
 // initializing the array with the already locally stored one 
 const links = JSON.parse(localStorage["links"]);
 // taking the field to put the buttons in
