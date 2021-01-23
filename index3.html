@@ -16,11 +16,11 @@
         <script>
         	// taking the link from the user
         	var link = document.getElementById("link_text");
-            // WRITE COMMENT FOR THIS SECTION
-            if (!localStorage['locally_stored_links']) {
-                localStorage.setItem('locally_stored_links', []);
-            } else {
-                const links = JSON.parse(localStorage['locally_stored_links']);
+
+            const links = [];
+
+            if (localStorage.getItem('savedLinks') === 'undefined'){
+                localStorage.setItem(savedLinks, [1]);
             }
         	// taking the field to put the buttons in
         	var output = document.getElementById("link-to-visit");
@@ -41,25 +41,31 @@
                 //pushing the object into the array
                 links.push(link_info);
                 // putting everything in the locat storage of the browser
-                localStorage['locally_stored_links'] = JSON.stringify(links);
+                localStorage.setItem(savedLinks, links);
             }
 
             // outputting all the links into the established output tag
             seeAllLinks = () => {
                 // taking the array of links from the browser local storage
-                const stored_links = JSON.parse(localStorage['locally_stored_links']);
+                const stored_links = localStorage.getItem('savedLinks');
                 // creating all the link to see
-                for (var i = 0; i < stored_links.length; i++) {
-                    // setting a variable to create the link text
-                    var hyperlink = document.createElement("a");
-                    // adding elternative text for the link that describe the link
-                    hyperlink.appendChild(document.createTextNode(stored_links[i].descr + "  "));
-                    // setting the href attribute
-                    hyperlink.setAttribute("href", stored_links[i].link);
-                    // appendig the link to the output section of the page
-                    output.appendChild(hyperlink);
+                if (stored_links !== 'null') {
+                    for (var i = 0; i < stored_links.length; i++) {
+                        // setting a variable to create the link text
+                        var hyperlink = document.createElement("a");
+                        // adding elternative text for the link that describe the link
+                        hyperlink.appendChild(document.createTextNode(stored_links[i].descr + "  "));
+                        // setting the href attribute
+                        hyperlink.setAttribute("href", stored_links[i].link);
+                        // appendig the link to the output section of the page
+                        output.appendChild(hyperlink);
+                    }
+                } else {
+                    prompt('there is nothing here');
                 }
             }
+
+
 
             take_link_button.addEventListener("click", addLinkToArray);
             window.onload = seeAllLinks;

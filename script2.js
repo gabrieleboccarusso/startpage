@@ -1,21 +1,12 @@
-// the script is write takins as base to have a text input for the link and one for
-// description plus the button to add it
-// -----------------------------------------
-// <input type="text" id="link_text" placeholder="enter link">
-// <input type="text" id="link_description" placeholder="enter description">
-// <button id="link-btn" class="link-btn">Add link</button>
-// <output id="link-to-visit">
-// </output>
+/*we first create a void array and then we put this array into the stored 
+locally one. the problem is that we everytime override the the locally
+stored and then */
 // ------------------------------------
 
 // taking the link from the user
 var link = document.getElementById("link_text");
-// initializing the array with the already locally stored one 
-const links = [1];
-
-if (localStorage.getItem("locally_stored_links")) { 
-    localStorage.setItem("locally_stored_links", []);
-}
+let links = [{bruh:"bruh"}];
+const links = JSON.parse(window.localStorage.getItem('locally_stored_links'));
 // taking the field to put the buttons in
 var output = document.getElementById("link-to-visit");
 // taking the link after the user pressed the button
@@ -28,21 +19,21 @@ addLinkToArray = () => {
         link: "",       // it in the array will arrive always the same values
         descr: ""
     };
-    const links = JSON.parse(localStorage('locally_stored_links'));
     // putting the link into the section of the object
     link_info.link = prompt('Enter the link');
      // putting the description of the link into the section of the object
     link_info.descr = prompt('Enter the link description');
-    //pushing the object into the array
+    // //pushing the object into the array
+    // links.push(link_info);
+    // // putting everything in the locat storage of the browser
+    // localStorage['locally_stored_links'] = JSON.stringify(links);
     links.push(link_info);
-    // putting everything in the locat storage of the browser
-    localStorage['locally_stored_links'] = JSON.stringify(links);
 }
 
 // outputting all the links into the established output tag
 seeAllLinks = () => {
     // taking the array of links from the browser local storage
-    var stored_links = Storage.getItem("locally_stored_links");
+    let stored_links = local;
     // creating all the link to see
     for (var i = 0; i < stored_links.length; i++) {
         // setting a variable to create the link text
