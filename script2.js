@@ -51,15 +51,14 @@ seeAllLinks = () => {
             hyperlink.href = stored_links[i].link;
             // appendig the link to the output section of the page
             output.appendChild(hyperlink);
-            // -----------------
             // adding possibility to delete a link - creating button
             let btn = document.createElement("button");
             // putting in a variable the index of the current link
             let link_index = i;
             // adding function to the button
-            btn.onclick = deleteItself = (event) => {
-                event.stopPropagation();
-                let answer = prompt("are you sure?") 
+            btn.onclick = () => {
+                // document.getElementById(id).style.display="none";
+                let answer = prompt("are you sure?"); 
                 if (answer[0] === 'Y' || answer[0] === 'y') {
                     // removing child of output - the link
                     output.removeChild(hyperlink);
@@ -73,11 +72,13 @@ seeAllLinks = () => {
             }
             // entering text inside the button
             btn.appendChild(document.createTextNode("delete me"));
-            // appending the button to the link
-            hyperlink.appendChild(btn);
+            // appending the button near the link
+            // NOTE: this way could cause some issues during the styling of the document
+            output.appendChild(btn); // original: hyperlink.appendChild(btn);
         }
     }
 }
 
 take_link_button.addEventListener("click", addLinkToArray);
 window.onload = seeAllLinks;
+window.onload = clearLinks;
