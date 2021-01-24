@@ -1,5 +1,4 @@
-// taking the link from the user
-var link = document.getElementById("link_text");
+// declaring main array 
 const links = [];
 // if the array of stored links already doesn't exists already
 if (!links.push(JSON.parse(localStorage.getItem('links')))) {
@@ -81,4 +80,3 @@ seeAllLinks = () => {
 
 take_link_button.addEventListener("click", addLinkToArray);
 window.onload = seeAllLinks;
-window.onload = clearLinks;
