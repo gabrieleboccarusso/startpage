@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<style type="text/css">
+		.pink_background {
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<aside class="left">
+		<header>
+			<h2>Film to see</h2>
+			<input type="text" id="film-name" placeholder="enter film to see">
+			<button id="added-film" class="film">Add</button>
+		</header>
+
+		<output id="watched-film">
+			
+		</output>
+
+		<ul id="films-to-see">
+		</ul>
+	</aside>
+
+	<main>
+		<section id="section1" onclick="addClass('section1')">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</section>
+		<section id="section2" onclick="addClass('section2')">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</section>
+	</main>
+
+
+	<aside class="right">
+		online instruments
+	</aside>
+
+	<script type="text/javascript">
+		addClass = (id) => {
+			let element = document.getElementById(id);
+			element.classList.toggle("pink_background");
+		}
+	</script>
+</body>
+</html>

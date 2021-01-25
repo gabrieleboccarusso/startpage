@@ -21,7 +21,6 @@ addLinkToArray = () => {
     link_info.link = prompt("Here enter the link");
     // putting the description of the link into the section of the object
     link_info.descr = prompt("Here enter the description");
-    // next 4 line of code took by stackoverflow  and modified
     // creating a variable and putting in it the stored array
     dummy_array = JSON.parse(localStorage.getItem('links')) || [];
     // pushing the object into the dummy array
