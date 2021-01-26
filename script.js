@@ -1,5 +1,5 @@
 // START TO DO LIST
-// the script function only inside a list because it create li elements
+// the script function only inside an unordered list because it create li elements
 // we select the button with the id of added-film
 var button = document.getElementById("added-film");
 // understand query selector

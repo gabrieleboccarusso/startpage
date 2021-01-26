@@ -23,15 +23,15 @@ main {
 	background-color: grey;
 }
 
-.connections {
+#connections {
 	background-color: orange;
 }
 
-.resources {
+#resources {
 	background-color: lightblue;
 }
 
-.calendar {
+#calendar {
 	background-color: purple;
 }
 

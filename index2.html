@@ -10,7 +10,7 @@
 		}
 	</style>
 </head>
-<body>
+<body >
 	<aside class="left">
 		<header>
 			<h2>Film to see</h2>
@@ -27,7 +27,7 @@
 	</aside>
 
 	<main>
-		<section id="section1" onclick="addClass('section1')">
+		<section id="section1">
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -35,7 +35,7 @@
 			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 		</section>
-		<section id="section2" onclick="addClass('section2')">
+		<section id="section2" onclick="showId('section2')">
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -51,7 +51,7 @@
 	</aside>
 
 	<script type="text/javascript">
-		addClass = (id) => {
+		showId = (id) => {
 			let element = document.getElementById(id);
 			element.classList.toggle("pink_background");
 		}

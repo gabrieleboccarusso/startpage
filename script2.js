@@ -77,5 +77,5 @@ seeAllLinks = () => {
     }
 }
 
+window.onload = seeAllLinks();
 take_link_button.addEventListener("click", addLinkToArray);
-window.onload = seeAllLinks;
