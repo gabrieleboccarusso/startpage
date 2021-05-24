@@ -1,0 +1,64 @@
+/* first comment to try out git*/
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	height: 100vh;
+	width: 100%;
+}
+
+header {
+	text-align: center;
+	padding: 30px;
+}
+
+main {
+	height: 75vh;
+	max-width: 500px;
+	margin: auto;
+	display: grid;
+	grid-gap: 1px;
+}
+
+section {
+	border: 1px solid black;
+	display: flex;
+}
+
+h3 {
+	text-align: center;
+	writing-mode: vertical-rl;
+	transform: rotate(180deg);
+	background-color: green;
+}
+
+footer {
+	border: 15px;
+	text-align: center;
+}
+
+.pink {
+	background-color: pink;
+}
+
+.grey {
+	background-color: grey;
+}
+
+.connections {
+	background-color: orange;
+}
+
+.resources {
+	background-color: lightblue;
+}
+
+.calendar {
+	background-color: purple;
+}
+
+.watched {
+	text-decoration: line-through;;
+}
