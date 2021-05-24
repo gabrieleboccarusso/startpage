@@ -27,7 +27,7 @@ section {
 	display: flex;
 }
 
-h3 {
+section h3 {
 	text-align: center;
 	writing-mode: vertical-rl;
 	transform: rotate(180deg);

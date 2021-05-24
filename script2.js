@@ -5,23 +5,19 @@ if (!links.push(JSON.parse(localStorage.getItem('links')))) {
     // then initialize one
     localStorage.setItem('links', JSON.stringify(links));
 }
-// taking the field to put the buttons in
-var output = document.getElementById("link-to-visit");
-// taking the link after the user pressed the button
-var take_link_button = document.getElementById("link-btn");
 
-// the function add just the link to the array
+let output = document.getElementById("link-to-visit");
+let take_link_button = document.getElementById("link-btn");
+
+// the function add the link to the array
 addLinkToArray = () => { 
-    //setting the object with the effective link and its description
-    const link_info = { // creating the array into the function otherwise
-        link: "",       // it in the array will arrive always the same values
+    const link_info = {
+        link: "",     
         descr: ""
     };
-    // putting the link into the section of the object
     link_info.link = prompt("Here enter the link");
-    // putting the description of the link into the section of the object
     link_info.descr = prompt("Here enter the description");
-    // next 4 line of code took by stackoverflow  and modified
+
     // creating a variable and putting in it the stored array
     dummy_array = JSON.parse(localStorage.getItem('links')) || [];
     // pushing the object into the dummy array
@@ -35,7 +31,6 @@ addLinkToArray = () => {
 
 // outputting all the links into the established output tag
 seeAllLinks = () => {
-    // taking the array of links from the browser local storage
     const stored_links = JSON.parse(localStorage["links"]);
     // creating all the link to see
     for (var i = 0; i < stored_links.length; i++) {
