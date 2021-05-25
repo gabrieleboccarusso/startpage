@@ -5,19 +5,34 @@
 let arr;
 if (!localStorage.getItem('links'))
 {
-	console.log('the arr doesn\'t exists')
 	localStorage.setItem("links", '[]');
-} else {
+}
+else 
+{
 	arr = JSON.parse(localStorage.getItem('links'));
-	//arr = localStorage.getItem('links');
-	// arr.push({1: 1, 2: 2});
-	arr.push(1);
-	console.log('it exists');
-	console.log(arr);
-	localStorage.removeItem('links')
-	localStorage.setItem('links', JSON.stringify(arr));
 }
 
-// always deleting and re-storing the new array is not a good idea,
-// a possible solutionis here:
-// https://stackoverflow.com/questions/58155249/how-to-change-the-value-of-an-item-in-localstorage-using-javascript
+// declaring functions
+addLinkToArray = () => {
+	  const link_info = {
+        link: "",     
+        descr: ""
+    };
+    link_info.link = prompt("Here enter the link");
+    link_info.descr = prompt("Here enter the description");
+
+    arr.push(link_info);
+
+    localStorage.setItem('links', JSON.stringify(arr));
+}
+
+seeAllLinks = () => {
+	console.log(arr);
+}
+
+// declaring all the different inputs
+let take_work_link = document.getElementById('work_links');
+let work_output = document.getElementById('visit_work_links');
+// take_link_button.addEventListener("click", addLinkToArray);
+take_work_link.addEventListener('click', addLinkToArray)
+window.onload = seeAllLinks;
