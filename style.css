@@ -1,12 +1,10 @@
-/* first comment to try out git*/
 * {
 	margin: 0;
 	padding: 0;
 }
 
 body {
-	height: 100vh;
-	width: 100%;
+	margin: auto;
 }
 
 header {

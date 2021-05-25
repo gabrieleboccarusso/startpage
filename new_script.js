@@ -27,7 +27,29 @@ addLinkToArray = () => {
 }
 
 seeAllLinks = () => {
-	console.log(arr);
+	// if the array actually exists
+	if (arr)
+	{
+		let i;
+		let single_link;
+		for (i = 0; i < arr.length; i++)
+		{
+			if (!arr[i].descr || !arr[i].link)
+			{
+				// delete element
+			} 
+			else // create link
+			{
+				single_link = document.createElement('a');
+				single_link.target = "_blank";
+
+				single_link.appendChild(document.createTextNode(arr[i].descr + ' '));
+				single_link.href = arr[i].link;
+
+				work_output.appendChild(single_link);
+			}
+		}
+	}
 }
 
 // declaring all the different inputs
