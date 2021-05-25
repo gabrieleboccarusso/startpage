@@ -9,7 +9,7 @@ if (!links.push(JSON.parse(localStorage.getItem('links')))) {
 let output = document.getElementById("link-to-visit");
 let take_link_button = document.getElementById("link-btn");
 
-// the function add the link to the array
+// this function add the link to the array
 addLinkToArray = () => { 
     const link_info = {
         link: "",     
@@ -19,7 +19,7 @@ addLinkToArray = () => {
     link_info.descr = prompt("Here enter the description");
 
     // creating a variable and putting in it the stored array
-    dummy_array = JSON.parse(localStorage.getItem('links')) || [];
+    dummy_array = JSON.parse(localStorage.getItem('links'));
     // pushing the object into the dummy array
     dummy_array.push(link_info);
     // just to have the situation under control
