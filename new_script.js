@@ -1,26 +1,22 @@
-//  different attempt at saving data into the local storage
-
-// if the array doesn't exists we create a new one,
-// otherwise we save it into a variable
-let arr;
+// if the array doesn't exists we initialize it
 if (!localStorage.getItem('links'))
 {
 	localStorage.setItem("links", '[]');
 }
-else 
-{
-	arr = JSON.parse(localStorage.getItem('links'));
-}
+
+let arr = JSON.parse(localStorage.getItem('links'));
 
 // declaring functions
-addLinkToArray = () => {
+addLinkToArray = (section) => {
 	  const link_info = {
         link: "",     
-        descr: ""
+        descr: "",
+        output: section
     };
     link_info.link = prompt("Here enter the link");
     link_info.descr = prompt("Here enter the description");
 
+    console.log(arr);
     arr.push(link_info);
 
     localStorage.setItem('links', JSON.stringify(arr));
@@ -34,11 +30,7 @@ seeAllLinks = () => {
 		let single_link;
 		for (i = 0; i < arr.length; i++)
 		{
-			if (!arr[i].descr || !arr[i].link)
-			{
-				// delete element
-			} 
-			else // create link
+			if (arr[i]) 
 			{
 				single_link = document.createElement('a');
 				single_link.target = "_blank";
@@ -46,15 +38,24 @@ seeAllLinks = () => {
 				single_link.appendChild(document.createTextNode(arr[i].descr + ' '));
 				single_link.href = arr[i].link;
 
-				work_output.appendChild(single_link);
-			}
-		}
-	}
-}
+				switch(arr[i].output)
+				{
+					case "section_1":
+						section_1_output.appendChild(single_link);
+						break;
+					case "section_2":
+						section_2_output.appendChild(single_link);
+						break;
+					case "section_3":
+						section_3_output.appendChild(single_link);
+				} // end switch
+			} // end if (arr[i]) 
+		} // end for (i = 0; i < arr.length; i++)
+	} // end if (arr)
+} // end seeAllLinks()
 
-// declaring all the different inputs
-let take_work_link = document.getElementById('work_links');
-let work_output = document.getElementById('visit_work_links');
-// take_link_button.addEventListener("click", addLinkToArray);
-take_work_link.addEventListener('click', addLinkToArray)
+// declaring all the different outputs
+let section_1_output = document.getElementById('visit_section_1_links');
+let section_2_output = document.getElementById('visit_section_2_links');
+let section_3_output = document.getElementById('visit_section_3_links');
 window.onload = seeAllLinks;

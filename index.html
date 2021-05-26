@@ -1,42 +1,39 @@
 <DOCTYPE html5>
-<!DOCTYPE html>
 <html>
 <head>
 	<title>STARTPAGE</title>
+	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<!-- <header class=" pink">
-		this is the header
-	</header> -->
+	<header>
+	</header>
 
 	<!-- the link are divided into three categories -->
-	<center>
 	<main>
-		<section class = 'work'>
-			<h3>work</h3>
-			<button id="work_links">Add link</button>
-			<output id="visit_work_links">
+		<section>
+			<h3>section 1</h3>
+			<input type="button" value="add link" onclick = "addLinkToArray('section_1')">
+			<output id="visit_section_1_links">
+			</output>
 		
 		</section>	
-		<section class = 'section 2'>
+		<section>
 			<h3>section 2</h3>
-			<button id="link-btn">Add link</button>
-			<output id="link-to-visit">
+			<input type="button" value="add link" onclick = "addLinkToArray('section_2')">
+			<output id="visit_section_2_links">
 		</section>
 		
-		<section class = 'section 3'>
+		<section>
 			<h3>section 3</h3>
-			<button id="link-btn">Add link</button>
-			<output id="link-to-visit">
+			<input type="button" value="add link" onclick = "addLinkToArray('section_3')">
+			<output id="visit_section_3_links">
 		</section>
 	</main>
-</center>
 </output>
 
-	<!-- <footer class="grey">
-		made with love
-	</footer> -->
+	<footer>
+	</footer>
 
 	<script type="text/javascript" src="new_script.js"></script>
 </body>
