@@ -14,22 +14,39 @@ closeNav = () => {
 // TO DO: debig the code after is finished
 // receive the object
 openNav = (obj) => { 
-	// get
+	// get object with link information
 	let links = JSON.parse(localStorage.getItem("links"));
-	links = links[obj.originalTarget.id];
-	console.log(links);
+	let index = obj.originalTarget.id;
+	console.log(links[index]);
 
 	document.getElementById("myNav").style.width = "25%";
 
 	let output = document.getElementById("temp-output");
 
-	// single_link.appendChild(document.createTextNode(arr[i].descr + ' '));
+	// create link to the webpage
 	let go_to = document.createElement('a');
-	go_to.appendChild(document.createTextNode(links.descr));
-	go_to.href = links.link;
+	go_to.appendChild(document.createTextNode("visit " + links[index].descr));
+	go_to.href = links[index].link;
 	go_to.target = "_blank";
 
+	// create text that delete the link;
+	let delete_link = document.createElement('span');
+	delete_link.appendChild(document.createTextNode("delete link"));
+	delete_link.onclick = () => {
+		// delete object
+		delete links[index];
+		// update local storage
+		localStorage.setItem("links", JSON.stringify(links));
+		// remove it from the main
+		let node = document.getElementById(index);
+	  node.parentNode.removeChild(node);
+		// close curtain
+		closeNav();
+	}
+
+	// append all functionalities
 	output.appendChild(go_to);
+	output.appendChild(delete_link);
 
 }
 
@@ -47,6 +64,9 @@ addLinkToArray = (section) => {
     arr.push(link_info);
 
     localStorage.setItem('links', JSON.stringify(arr));
+
+
+
 }
 
 seeAllLinks = () => {
