@@ -10,12 +10,26 @@ closeNav = () => {
 	document.getElementById("myNav").style.width = "0%";
 }
 
+// TO DO: polish this function
+// TO DO: debig the code after is finished
 // receive the object
-openNav = (link) => { /*
-	let n = link.originalTarget.id;
+openNav = (obj) => { 
+	// get
 	let links = JSON.parse(localStorage.getItem("links"));
-	console.log(links[n]); */
+	links = links[obj.originalTarget.id];
+	console.log(links);
+
 	document.getElementById("myNav").style.width = "25%";
+
+	let output = document.getElementById("temp-output");
+
+	// single_link.appendChild(document.createTextNode(arr[i].descr + ' '));
+	let go_to = document.createElement('a');
+	go_to.appendChild(document.createTextNode(links.descr));
+	go_to.href = links.link;
+	go_to.target = "_blank";
+
+	output.appendChild(go_to);
 
 }
 
