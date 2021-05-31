@@ -11,7 +11,7 @@ closeNav = () => {
 }
 
 // TO DO: polish this function
-// TO DO: debig the code after is finished
+// TO DO: debug the code after is finished
 // receive the object
 openNav = (obj) => { 
 	// get object with link information
@@ -32,6 +32,7 @@ openNav = (obj) => {
 	// create text that delete the link;
 	let delete_link = document.createElement('span');
 	delete_link.appendChild(document.createTextNode("delete link"));
+
 	delete_link.onclick = () => {
 		// delete object
 		delete links[index];
@@ -47,7 +48,6 @@ openNav = (obj) => {
 	// append all functionalities
 	output.appendChild(go_to);
 	output.appendChild(delete_link);
-
 }
 
 // declaring functions
@@ -65,48 +65,53 @@ addLinkToArray = (section) => {
 
     localStorage.setItem('links', JSON.stringify(arr));
 
-
-
+    // append link to main
+    i++;
+    let single_link = createLink(link_info.descr, i);
+    appendLink(link_info.output, single_link);
 }
+
+let i;
 
 seeAllLinks = () => {
 	// if the array actually exists
 	if (arr)
 	{
-		let i;
-		let single_link;
 		for (i = 0; i < arr.length; i++)
 		{
 			if (arr[i]) 
 			{
-				single_link = document.createElement('span');
+				appendLink(arr[i].output, createLink(arr[i].descr, i));
+			} 
+		}
+	} 
+} 
 
-				single_link.appendChild(document.createTextNode(arr[i].descr + ' '));
-				single_link.id = i;
-				//single_link.href = arr[i].link;
-				single_link.onclick = (single_link) => { 
-					//console.log(single_link);
-					openNav(single_link);
-				}	
+createLink = (descr, i) => {
+	let single_link = document.createElement('span');
+	single_link.appendChild(document.createTextNode(descr + ' '));
+	single_link.id = i;
 
-				//console.log(single_link);
+	single_link.onclick = (single_link) => { 
+		openNav(single_link);
+	}	
+	return single_link;
+}
 
-				switch(arr[i].output)
-				{
-					case "section_1":
-						section_1_output.appendChild(single_link);
-						break;
-					case "section_2":
-						section_2_output.appendChild(single_link);
-						break;
-					case "section_3":
-						section_3_output.appendChild(single_link);
-				} // end switch
-			} // end if (arr[i]) 
-		} // end for (i = 0; i < arr.length; i++)
-	} // end if (arr)
-} // end seeAllLinks()
-
+appendLink = (place, link) => {
+	switch(place)
+	{
+		case "section_1":
+			section_1_output.append(link);
+			break;
+		case "section_2":
+			section_2_output.append(link);
+			break;
+		case "section_3":
+			section_3_output.append(link);
+			break;
+	}
+}
 
 
 // declaring all the different outputs
