@@ -6,8 +6,8 @@ This startpage take a link and a title for then save it server side, deleting yo
 ![gif that shows how to use the startpage](example_usage.gif)
 
 ## Roadmap
-[ ] create a curtain menu for every link that:
-	[ ] visit the link
-	[ ] delete the link
+[X] create a curtain menu for every link that:
+	[X] visit the link
+	[X] delete the link
 [ ] button that download a text files with all link in it
 [ ] function that can read links from a text file and store them 

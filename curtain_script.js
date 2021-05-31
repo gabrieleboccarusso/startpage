@@ -7,17 +7,28 @@ if (!localStorage.getItem('links'))
 let arr = JSON.parse(localStorage.getItem('links'));
 
 closeNav = () => {
+	isAlreadyOpen = false;
+	document.getElementById("temp-output").innerHTML = '';
 	document.getElementById("myNav").style.width = "0%";
 }
 
 // TO DO: polish this function
 // TO DO: debug the code after is finished
 // receive the object
+reOpen = (obj) => {
+	closeNav();
+	// openNav(obj);
+}
+
 openNav = (obj) => { 
+
+	if (isAlreadyOpen) {
+		closeNav();
+	} 
+	isAlreadyOpen = true;
 	// get object with link information
 	let links = JSON.parse(localStorage.getItem("links"));
 	let index = obj.originalTarget.id;
-	console.log(links[index]);
 
 	document.getElementById("myNav").style.width = "25%";
 
@@ -66,25 +77,24 @@ addLinkToArray = (section) => {
     localStorage.setItem('links', JSON.stringify(arr));
 
     // append link to main
-    i++;
     let single_link = createLink(link_info.descr, i);
     appendLink(link_info.output, single_link);
+    i++;
 }
 
 let i;
 
 seeAllLinks = () => {
-	// if the array actually exists
-	if (arr)
-	{
 		for (i = 0; i < arr.length; i++)
 		{
-			if (arr[i]) 
+			// if (arr[i].link && arr[i].descr) 
+			if (!arr[i] || arr[i].descr === '')
 			{
-				appendLink(arr[i].output, createLink(arr[i].descr, i));
-			} 
+				arr.splice(i, 1);
+			} else {
+				appendLink(arr[i].output, createLink(arr[i].descr, i));			}
 		}
-	} 
+		 localStorage.setItem('links', JSON.stringify(arr));
 } 
 
 createLink = (descr, i) => {
@@ -118,4 +128,5 @@ appendLink = (place, link) => {
 let section_1_output = document.getElementById('visit_section_1_links');
 let section_2_output = document.getElementById('visit_section_2_links');
 let section_3_output = document.getElementById('visit_section_3_links');
+let isAlreadyOpen = false;
 window.onload = seeAllLinks;
